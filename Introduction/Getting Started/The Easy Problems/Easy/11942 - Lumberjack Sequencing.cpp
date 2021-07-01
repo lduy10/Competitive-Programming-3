@@ -11,24 +11,14 @@ int main() {
 		cin >> a1 >> a2;
 		int i = 8;
 		bool ordered = true;
-		if (a1 > a2) {
-			while (i--) {
-				int ai;
-				cin >> ai;
-				if (ai > a2 && ordered) {
-					ordered = false;
-				}
-				a2 = ai;
+		int a0 = a2;
+		while (i--) {
+			int ai;
+			cin >> ai;
+			if ((a1 > a2 && ai > a0) || (a1 < a2 && ai < a0)){
+				ordered = false;
 			}
-		} else {
-			while (i--) {
-				int ai;
-				cin >> ai;
-				if (ai < a2 && ordered) {
-					ordered = false;
-				}
-				a2 = ai;
-			}
+			a0 = ai;
 		}
 		if (ordered) {
 			cout << "Ordered";
