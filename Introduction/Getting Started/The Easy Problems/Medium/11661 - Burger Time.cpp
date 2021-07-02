@@ -7,27 +7,22 @@ int main() {
 		int l;
 		cin >> l;
 		if (l == 0) break;
-		int min = 2000001, cnt = 0;
-		char t = '?';
+		int ans = 2000001, lastR = -2000001, lastD = -2000001;
 		for (int i = 1; i <= l; i++) {
-			cnt++;
 			char c;
 			cin >> c;
-			if (c == 'Z') min = 0;
-			else if (t == '?' && c != '.') {
-				t = c;
-				cnt = 0;
-			} else if (t == 'R' && c == 'R' || t == 'D' && c == 'D') {
-				cnt = 0;
-			} else if (t == 'R' && c == 'D' || t == 'D' && c == 'R') {
-				t = c;
-				if (cnt < min) {
-					min = cnt;
+			if (c == 'Z') ans = 0;
+			if (ans != 0) {
+				if (c == 'R') {
+					ans = min(ans, i - lastD);
+					lastR = i;
+				} else if (c == 'D') {
+					ans = min(ans, i - lastR);
+					lastD = i;
 				}
-				cnt = 0;
 			}
 		}
-		cout << min << "\n";
+		cout << ans << "\n";
 	}
 	return 0;
 }
