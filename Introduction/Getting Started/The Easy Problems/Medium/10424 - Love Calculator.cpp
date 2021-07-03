@@ -28,10 +28,9 @@ int main() {
 		int o = calSum(n);
 		if (t % 2 != 0) {
 			m = o;
-		} else if (o < m){
-			printf("%.2lf %%\n", (double) o / m * 100);
 		} else {
-			printf("%.2lf %%\n", (double) m / o * 100);
+			if (m > o) swap(m, o);
+			printf("%.2f %\n", (double) m / o * 100);
 		}
 		t++;
 	}

@@ -14,7 +14,7 @@ int main() {
 			if (list[i] == 'M') m++;
 			else if (list[i] == 'F') fm++;
 		}
-		if (m == fm && list.size() != 2) cout << "LOOP";
+		if (m == fm && m > 1) cout << "LOOP";
 		else cout << "NO LOOP";
 		cout << "\n";
 	}
