@@ -20,7 +20,7 @@ int main() {
 		int i = 25;
 		while (times--) {
 			Y += pile[i].second;
-			i -= 1 + 10 - pile[i].second;
+			i -= 11 - pile[i].second;
 		}
 		cout << "Case " << tc++ << ": ";
 		if (i >= Y) {
