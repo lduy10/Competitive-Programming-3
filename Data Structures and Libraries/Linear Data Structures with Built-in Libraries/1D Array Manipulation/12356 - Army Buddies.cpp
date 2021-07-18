@@ -3,7 +3,6 @@
 using namespace std;
 
 struct Soldier {
-	int index;
 	int left;
 	int right;
 };
@@ -11,15 +10,18 @@ struct Soldier {
 int main() {
 	int s, b;
 	while (cin >> s >> b, s, b) {
-		vector<Soldier> soldiers(s + 2);
-		soldiers[0].index = -1;
-		soldiers[s + 1].index = -1;
+		vector<Soldier> soldiers(s + 1);
 		for (int i = 1; i <= s; i++) {
-			soldiers[i].index = i;
-		}
-		for (int i = 1; i <= s; i++) {
-			soldiers[i].left = soldiers[i - 1].index;
-			soldiers[i].right = soldiers[i + 1].index;
+			if (i == 1) {
+				soldiers[i].left = -1;
+			} else {
+				soldiers[i].left = i - 1;
+			}
+			if (i == s) {
+				soldiers[i].right = -1;
+			} else {
+				soldiers[i].right = i + 1;
+			}
 		}
 
 		for (int i = 1; i <= b; i++) {
@@ -32,17 +34,17 @@ int main() {
 			}
 			if (ri != -1) {
 				soldiers[ri].left = li;
-			}
+			} 
 			if (li == -1) {
 				cout << "*";
 			} else {
-				cout << soldiers[li].index;
+				cout << li;
 			}
 			cout << " ";
 			if (ri == -1) {
 				cout << "*";
 			} else {
-				cout << soldiers[ri].index;
+				cout << ri;
 			}
 			cout << "\n";
 		}
