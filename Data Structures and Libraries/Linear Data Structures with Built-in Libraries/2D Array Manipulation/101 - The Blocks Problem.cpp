@@ -22,7 +22,7 @@ int main() {
 		cin >> a >> type >> b;
 		int xA = m[a].x, yA = m[a].y;
 		int xB = m[b].x, yB = m[b].y;
-		if (a == b || xA == xB) {
+		if (xA == xB) {
 			continue;
 		}
 		if (type == "onto") {
