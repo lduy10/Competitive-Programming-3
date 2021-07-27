@@ -85,12 +85,20 @@ int main() {
 			double p = (double) tbl[i].points / (3 * tbl[i].playedMatches) * 100;
 			if (i == 0) {
 				printf("%2d.", r);
-			} else if (tbl[i].points != tbl[i - 1].points || tbl[i].scoredGoals != tbl[i - 1].scoredGoals || tbl[i].sufferedGoals != tbl[i - 1].sufferedGoals) {
+			} else if (tbl[i].points != tbl[i - 1].points
+			           || tbl[i].scoredGoals != tbl[i - 1].scoredGoals
+			           || tbl[i].sufferedGoals != tbl[i - 1].sufferedGoals) {
 				printf("%2d.", r);
 			} else {
 				printf("   ");
 			}
-			printf("%16s%4d%4d%4d%4d%4d", tbl[i].name.c_str(), tbl[i].points, tbl[i].playedMatches, tbl[i].scoredGoals, tbl[i].sufferedGoals, tbl[i].scoredGoals - tbl[i].sufferedGoals);
+			printf("%16s%4d%4d%4d%4d%4d",
+			       tbl[i].name.c_str(),
+			       tbl[i].points,
+			       tbl[i].playedMatches,
+			       tbl[i].scoredGoals,
+			       tbl[i].sufferedGoals,
+			       tbl[i].scoredGoals - tbl[i].sufferedGoals);
 			if (isnan(p)) {
 				printf("    N/A");
 			} else {
