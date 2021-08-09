@@ -50,9 +50,9 @@ void unionSet(int i, int j) {
     if (!isSameSet(i, j) && check(i, j)) {
         int x = findSet(i), y = findSet(j);
         if (rnk[x] > rnk[y]) {
-            p[y] = p[x];
+            p[y] = x;
         } else {
-            p[x] = p[y];
+            p[x] = y;
             if (rnk[x] == rnk[y]) {
                 rnk[y]++;
             }
