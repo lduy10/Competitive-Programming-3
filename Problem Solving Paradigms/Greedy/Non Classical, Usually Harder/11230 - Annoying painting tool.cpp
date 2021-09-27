@@ -19,36 +19,28 @@ int32_t main() {
             }
         }
         vector<vector<int>> a(n, vector<int>(m, 0));
-        int cnt = 0;
-        for (int i = 0; i < n; i++) {
-            if (i + r - 1 >= n) continue;
-            for (int j = 0; j < m; j++) {
-                if (j + c - 1 >= m) continue;
+        int ans = 0;
+        for (int i = 0; i < n - r + 1; i++) {
+            for (int j = 0; j < m - c + 1; j++) {
                 if (matrix[i][j] != a[i][j]) {
                     for (int k = i; k < i + r; k++) {
                         for (int l = j; l < j + c; l++) {
                             a[k][l] = 1 - a[k][l];
                         }
                     }
-                    cnt++;
+                    ans++;
                 }
             }
         }
-        bool check = true;
-        for (int i = 0; i < n && check; i++) {
+        for (int i = 0; i < n && ans != -1; i++) {
             for (int j = 0; j < m; j++) {
                 if (matrix[i][j] != a[i][j]) {
-                    check = false;
+                    ans = -1;
                     break;
                 }
             }
         }
-        if (check) {
-            cout << cnt;
-        } else {
-            cout << -1;
-        }
-        cout << "\n";
+        cout << ans << "\n";
     }
     return 0;
 }
