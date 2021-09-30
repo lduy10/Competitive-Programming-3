@@ -12,25 +12,25 @@ int32_t main() {
     while (t--) {
         int n;
         cin >> n;
-        vector<int> a(n);
-        for (int &i : a) {
-            cin >> i;
-        }
-        int ans = 1, tmp = a[0];
-        for (int i = 1; i < n; i++) {
+        int x, tmp;
+        cin >> tmp;
+        n--;
+        int ans = 1;
+        while (n--) {
+            cin >> x;
             if (ans % 2 != 0) {
-                if (a[i] > tmp) {
-                    tmp = a[i];
+                if (x > tmp) {
+                    tmp = x;
                 } else {
-                    tmp = a[i];
+                    tmp = x;
                     ans++;
                 }
             } else {
-                if (a[i] > tmp) {
-                    tmp = a[i];
+                if (x > tmp) {
+                    tmp = x;
                     ans++;
                 } else {
-                    tmp = a[i];
+                    tmp = x;
                 }
             }
         }
